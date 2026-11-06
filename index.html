@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d18">
+<title>پارس کالا ۲۴ | قیمت‌های خیلی ارزان لوازم خانگی</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap');
+*{box-sizing:border-box}
+:root{--gold:#ffd166;--white:#fff;--muted:#c5cad5}
+body{margin:0;min-height:100vh;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--white);background:radial-gradient(ellipse at 50% 18%,#263653 0%,#111a2b 42%,#080c15 100%);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;overflow-x:hidden}
+main{width:min(760px,100%);padding:clamp(28px,7vw,64px) 22px;position:relative}
+.logo{display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:900;font-size:1.1rem;letter-spacing:.2px}
+.logo span{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ffe29a,#f3a92e);color:#172033;display:grid;place-items:center;font-size:22px}
+h1{font-size:clamp(2rem,6vw,3.65rem);line-height:1.45;margin:25px 0 12px;font-weight:900}
+h1 em{font-style:normal;color:var(--gold)}
+.typing-wrap{min-height:90px;display:flex;align-items:center;justify-content:center;margin:15px auto 18px}
+.typing{font-size:clamp(1.15rem,3.5vw,1.75rem);font-weight:800;color:#f4f6fb;line-height:1.8}
+.cursor{display:inline-block;width:3px;height:1.25em;background:var(--gold);margin-right:5px;vertical-align:middle;animation:blink .75s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.description{max-width:610px;margin:0 auto 32px;color:var(--muted);font-size:1.05rem;line-height:2.2}
+.join{display:inline-flex;justify-content:center;align-items:center;gap:12px;min-width:min(330px,100%);padding:17px 28px;border-radius:16px;background:linear-gradient(135deg,#ffe08a,#ffb52e);color:#171b25;font-weight:900;font-size:1.12rem;text-decoration:none;box-shadow:0 12px 40px #ffbd4540;transition:transform .2s,box-shadow .2s}
+.join:hover{transform:translateY(-4px);box-shadow:0 18px 48px #ffbd4560}
+.telegram{font-size:1.3rem}
+.small{margin-top:17px;color:#8f9aae;font-size:.85rem}
+.glow{position:absolute;width:250px;height:250px;border-radius:50%;background:#f8bd4b12;filter:blur(65px);z-index:-1;left:50%;top:45%;transform:translate(-50%,-50%)}
+@media(max-width:480px){body{padding:12px}main{padding:35px 10px}.description{font-size:.96rem}.typing-wrap{min-height:105px}.join{width:100%}}
+</style>
+</head>
+<body>
+<main>
+  <div class="glow"></div>
+  <div class="logo"><span>✦</span> پارس کالا ۲۴</div>
+  <h1>لوازم خانگی با <em>قیمت‌های خیلی ارزان!</em></h1>
+  <div class="typing-wrap">
+    <div class="typing"><span id="typed"></span><span class="cursor"></span></div>
+  </div>
+  <p class="description">
+    اگه قصد خرید لوازم خونه رو داری، قبل از هر جا سری به کانال پارس کالا ۲۴ بزن!
+    اینجا می‌تونی پیشنهادهای اقتصادی و قیمت‌های بسیار مناسب لوازم خانگی رو ببینی.
+    فرصت خرید هوشمندانه رو از دست نده؛ همین حالا عضو کانال شو و قیمت‌ها رو بررسی کن.
+  </p>
+  <a class="join" href="https://t.me/pars_kala24" target="_blank" rel="noopener">
+    <span class="telegram">➤</span> عضویت در کانال تلگرام
+  </a>
+  <div class="small">عضویت رایگان است • پارس کالا ۲۴</div>
+</main>
+<script>
+const phrases = [
+  "اینجا قیمت لوازم خانگی واقعاً به‌صرفه‌ست!",
+  "برای خرید اقتصادی، اول قیمت‌های کانال رو ببین.",
+  "از لوازم آشپزخانه تا وسایل بزرگ خانه؛ پیشنهادها رو دنبال کن!",
+  "قبل از خرید، پارس کالا ۲۴ رو از دست نده."
+];
+const target = document.getElementById("typed");
+let phraseIndex = 0, charIndex = 0, deleting = false;
+function type(){
+  const phrase = phrases[phraseIndex];
+  target.textContent = phrase.slice(0, charIndex);
+  if(!deleting && charIndex < phrase.length){charIndex++;setTimeout(type,65);}
+  else if(!deleting){deleting=true;setTimeout(type,1600);}
+  else if(charIndex > 0){charIndex--;setTimeout(type,30);}
+  else{deleting=false;phraseIndex=(phraseIndex+1)%phrases.length;setTimeout(type,350);}
+}
+type();
+</script>
+</body>
+</html>
